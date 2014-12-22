@@ -1,0 +1,17 @@
+.ui.main.container
+  h5 
+    i.fa.fa-code.fa-2x 
+    | {{repository}} 
+    .fa.fa-code-fork.fa-2x 
+    | {{branch}}
+  
+  .ui.divided.list.relaxed
+    .ui.item(ng-repeat="message in messages")
+
+      .ui.image.label
+        img(src="http://www.gravatar.com/avatar/fd1adaf32d9dc6531d6041dbc379efb0.png")
+        |  {{message.author}}
+
+      .content(ng-bind-html="message.text | markdown")
+      .ui.right.floated {{ message.date | moment}}
+
