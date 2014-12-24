@@ -1,17 +1,29 @@
 .ui.main.container
-  h5 
-    i.fa.fa-code.fa-2x 
-    | {{repository}} 
-    .fa.fa-code-fork.fa-2x 
-    | {{branch}}
+  .ui.veritcally.padded.grid
+    #chat-header.row
+      .sixteen.wide.column 
+        h5.ui.center.aligned.header
+          i.fa.fa-code &nbsp;
+          | {{repository.url}} &nbsp;
+          .fa.fa-code-fork &nbsp;
+          | {{repository.branch}}
+        .ui.divider
+    #chat-body.row
+      .sixteen.wide.column
+        .ui.divided.list.relaxed
+          .ui.item(ng-repeat="message in messages")
   
-  .ui.divided.list.relaxed
-    .ui.item(ng-repeat="message in messages")
+            .ui.image.label
+              img(src="http://www.gravatar.com/avatar/fd1adaf32d9dc6531d6041dbc379efb0.png")
+              |  {{message.author}}
 
-      .ui.image.label
-        img(src="http://www.gravatar.com/avatar/fd1adaf32d9dc6531d6041dbc379efb0.png")
-        |  {{message.author}}
-
-      .content(ng-bind-html="message.text | markdown")
-      .ui.right.floated {{ message.date | moment}}
+            .content(ng-bind-html="message.text | markdown")
+            .ui.right.floated {{ message.date | moment}}
+  
+    #chat-footer.row
+      .sixteen.wide.column
+        .ui.form
+          .field.ui.icon.input
+            textarea(placeholder="Speak up", ng-keyup="ifEnterSend($event)", ng-model="message")
+            i.fa.fa-send.icon(ng-click="send()")
 

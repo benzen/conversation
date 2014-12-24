@@ -1,0 +1,28 @@
+#chat-header {
+  position:absolute;
+  top:0px;
+  left:0px;
+  height:40px;
+  right:0px;
+  overflow:hidden;
+}
+#chat-body {
+  background: white;
+  position:absolute; 
+  top:40px; 
+  bottom:200px; 
+  left:0px; 
+  right:0px; 
+  overflow:auto;
+}
+#chat-footer {
+  position:absolute; 
+  bottom:0px; 
+  height:200px; 
+  left:0px; 
+  right:0px; 
+  overflow:hidden;
+}
+
+#chat-send-button{
+}

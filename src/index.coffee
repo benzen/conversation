@@ -17,7 +17,11 @@ configFilters = (app) ->
   app.filter 'markdown', -> markdownFilter
   app.filter 'moment', -> momentFilter
 
+configServices = (app) ->
+  app.service 'configService', configService
+
 app = createApp()
 configRoutes app
 configControllers app
 configFilters app
+configServices app
